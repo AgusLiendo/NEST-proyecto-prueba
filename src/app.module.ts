@@ -26,6 +26,9 @@ import { UsersModule } from './users/users.module';
       database: configService.get('DB_DATABASE'),
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      ssl: configService.get('DB_SSL') === 'true' 
+      ? { rejectUnauthorized: false }  // Azure acepta esto
+      : false,
     }),
   }),
 

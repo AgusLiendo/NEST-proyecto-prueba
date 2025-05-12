@@ -18,7 +18,7 @@ export class UsersService {
     findOne(id: number): Promise<User> {
         return this.usersRepository.findOneBy({ id }).then(user => {
             if (!user) {
-                throw new Error(`User with id ${id} not found`);
+                throw new Error(`Usuario con id: ${id} no encontrado`);
             }
             return user;
         });

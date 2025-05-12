@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
 
@@ -12,7 +12,7 @@ export class UsersController {
     }
 
     @Get(':id')
-    getOne(id: number): Promise<User> {
+    getOne(@Param ('id',ParseIntPipe) id: number): Promise<User> {
         return this.usersService.findOne(id);
     }
 
