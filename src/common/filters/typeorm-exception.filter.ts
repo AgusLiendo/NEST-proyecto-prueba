@@ -3,7 +3,7 @@ import e, { Response } from 'express';
 import { QueryFailedError } from 'typeorm';
 
 @Catch(QueryFailedError)
-export class TypeOrmUsersExceptionFilter implements ExceptionFilter {
+export class TypeOrmExceptionFilter implements ExceptionFilter {
 catch(exception: QueryFailedError, host: ArgumentsHost) {
     const ctx    = host.switchToHttp();
     const res    = ctx.getResponse<Response>();
