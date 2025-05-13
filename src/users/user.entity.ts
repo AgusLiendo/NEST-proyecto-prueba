@@ -1,6 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Check, Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 @Entity({name: 'users'})
+@Check('"email" IS NOT NULL')
+@Check('"name" IS NOT NULL')
+@Unique(['email'])
+
 export class User {
     @PrimaryGeneratedColumn()
     id?: number;
